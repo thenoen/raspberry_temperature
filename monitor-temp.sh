@@ -1,12 +1,12 @@
 #!/bin/bash
 
-OUTPUT_FILE="temp-$(date).txt";
+COMMAND='./test /sys/bus/w1/devices/28-000006dc1ebe/w1_slave'
 
 while true
 do
+	OUTPUT_FILE="temperature_$(date +%Y_%m_%d).txt";
 	echo -e "\n" | tee -a "${OUTPUT_FILE}"
 	date | tee -a "${OUTPUT_FILE}"
-	#echo -e "\n" | tee -a "${OUTPUT_FILE}"
-	./test /sys/bus/w1/devices/28-000006dc1ebe/w1_slave | tee -a "${OUTPUT_FILE}"
-	sleep 1m
+	eval $COMMAND | tee -a "${OUTPUT_FILE}"
+	sleep 1s
 done
