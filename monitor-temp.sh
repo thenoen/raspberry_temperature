@@ -8,5 +8,5 @@ do
 	echo -e "\n" | tee -a "${OUTPUT_FILE}"
 	date | tee -a "${OUTPUT_FILE}"
 	eval $COMMAND | tee -a "${OUTPUT_FILE}"
-	sleep 1s
+	sleep 1m
 done
